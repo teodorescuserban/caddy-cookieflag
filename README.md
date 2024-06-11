@@ -54,27 +54,7 @@ You will need to specify the execution order of this module in your caddyfile. T
 }
 ```
 
-### Forward the normalized request to an upstream
-
-```caddyfile
-{
-    order argsort before header
-}
-
-:8882 {
-    argsort
-    reverse_proxy localhost:8883
-}
-
-:8883 {
-    header Content-Type "text/html; charset=utf-8"
-    respond "Hello."
-}
-```
-
 ### Block usage
-
-Once the order has been set in the global options block, use `argsort lowecase` in any server block
 
 ```caddyfile
 # Add this block in top-level settings:
