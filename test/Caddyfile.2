@@ -4,6 +4,9 @@
 }
 
 :2015 {
+    cookieflag -secure
+    cookieflag -httponly
+
     reverse_proxy localhost:8889 {
         header_down -Server
     }
