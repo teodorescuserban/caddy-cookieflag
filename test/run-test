@@ -1,0 +1,49 @@
+#!/bin/bash
+
+set -eo pipefail
+set -x
+cleanup() {
+    pkill caddy || true
+}
+
+exit 0
+# $1: path
+# $2: additional flags
+# Echos content
+retry() {
+    local cnt=0
+    local -r THRES=10
+    while ! curl -sv $2 ${1} > /tmp/response; do
+        sleep 2
+        cnt=${cnt}+1
+        if [[ "$cnt" -gt "$THRES" ]]; then
+            exit 1
+        fi
+    done
+    cat /tmp/response
+}
+
+echobold() {
+    local -r bold=$(tput bold)
+    local -r normal=$(tput sgr0)
+    echo "${bold}${1}${normal}"
+}
+
+test() {
+    echobold "test case ${1}"
+    $XCADDY run --adapter caddyfile --config test/Caddyfile.${1}&
+    pid="$!"
+    retry $(cat test/test-${1}.req) > output${1}
+    diff output${1} test/test-${1}.res
+    cleanup
+}
+
+trap cleanup EXIT
+
+#go get -v -u github.com/caddyserver/xcaddy/cmd/xcaddy@v0.4.1
+go install github.com/caddyserver/xcaddy/cmd/xcaddy@v0.4.1
+
+#readonly XCADDY="go run github.com/caddyserver/xcaddy/cmd/xcaddy"
+readonly XCADDY="xcaddy"
+
+$XCADDY list-modules
