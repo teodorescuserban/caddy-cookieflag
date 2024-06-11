@@ -1,0 +1,23 @@
+{
+        order cookieflag before reverse_proxy
+}
+
+:8881 {
+    cookieflag +secure
+    # cookieflag -httponly
+
+    reverse_proxy localhost:8889 {
+        header_down -Server
+    }
+}
+
+:8889 {
+    header Content-Type "text/html; charset=utf-8"
+    header +Set-Cookie "samesite-ex1=aaa; SameSite=Lax" #" Expires=Thu, 01 Jan 1970 00:00:10 GMT" #; Path=/; HttpOnly; Secure;"
+    header +Set-Cookie "max-age-ex1=bbb; Max-Age=0"
+    header +Set-Cookie "secure-ex1=ccc; Secure"
+    header +Set-Cookie "httponly-ex1=ddd; HttpOnly"
+    header +Set-Cookie "path-ex1=eee; Path=/"
+    header +Set-Cookie "ditati-ex1=fff; HttpOnly; Secure; Path=/; Max-Age=0; SameSite=Lax; ditati-ex2=ggg"
+    respond "{host}{uri}"
+}
