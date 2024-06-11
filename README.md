@@ -24,8 +24,6 @@ You will need to specify the execution order of this module in your caddyfile. T
 
 ### One line usage
 
-Once the order has been set in the global options block, use `argsort lowecase` in any server block
-
 ```caddyfile
 # Add this block in top-level settings:
 {
@@ -57,8 +55,6 @@ Once the order has been set in the global options block, use `argsort lowecase` 
 ```
 
 ### Forward the normalized request to an upstream
-
-Once the order has been set in the global options block, you ensure query arguments sorting for an upstream server
 
 ```caddyfile
 {
