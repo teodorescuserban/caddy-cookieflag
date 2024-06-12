@@ -39,10 +39,8 @@ test() {
 
 trap cleanup EXIT
 
-#go get -v -u github.com/caddyserver/xcaddy/cmd/xcaddy@v0.4.1
-go install github.com/caddyserver/xcaddy/cmd/xcaddy@v0.4.1
+go install github.com/caddyserver/xcaddy/cmd/xcaddy@v0.4.2
 
-#readonly XCADDY="go run github.com/caddyserver/xcaddy/cmd/xcaddy"
 readonly XCADDY="xcaddy"
 
 $XCADDY list-modules
