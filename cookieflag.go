@@ -1,3 +1,5 @@
+// Package cookieflag provides a Caddy module that modifies various flags (Secure, HttpOnly, ...) in Set-Cookie headers.
+// It allows users to customize these flags based on their needs.
 package cookieflag
 
 import (
@@ -15,7 +17,7 @@ func init() {
 	httpcaddyfile.RegisterHandlerDirective("cookieflag", parseCaddyfile)
 }
 
-// CookieFlag is a middleware that modifies the Secure and HttpOnly flags in Set-Cookie headers.
+// CookieFlag is a middleware that modifies various flags (Secure, HttpOnly, ...) in Set-Cookie headers..
 //
 // Syntax:
 //
