@@ -10,28 +10,9 @@ Adds or removes the "Secure" and "HttpOnly" flags on you cookies set by the upst
 
 ## Usage
 
-### Set the module order
-
-You will need to specify the execution order of this module in your caddyfile. This is done in the global options block.
-
-```caddyfile
-{
-    ...
-    order argsort before reverse_proxy
-    ...
-}
-```
-
 ### One line usage
 
 ```caddyfile
-# Add this block in top-level settings:
-{
-    ...
-    order cookieflag before reverse_proxy
-    ...
-}
-
 :8881 {
 
     cookieflag +secure
@@ -57,13 +38,6 @@ You will need to specify the execution order of this module in your caddyfile. T
 ### Block usage
 
 ```caddyfile
-# Add this block in top-level settings:
-{
-    ...
-    order cookieflag before reverse_proxy
-    ...
-}
-
 :8881 {
 
     cookieflag {
