@@ -17,7 +17,7 @@ func init() {
 	httpcaddyfile.RegisterHandlerDirective("cookieflag", parseCaddyfile)
 }
 
-// CookieFlag is a middleware that modifies various flags (Secure, HttpOnly, ...) in Set-Cookie headers..
+// CookieFlag manipulate various flags (Secure, HttpOnly, ...) in the Set-Cookie reponse headers.
 //
 // Syntax:
 //
