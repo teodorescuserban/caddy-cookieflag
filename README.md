@@ -5,7 +5,7 @@
 [![GoDoc](http://img.shields.io/badge/godoc-reference-blue.svg)](https://pkg.go.dev/github.com/teodorescuserban/caddy-cookieflag)
 [![Go Report Card](https://goreportcard.com/badge/github.com/teodorescuserban/caddy-cookieflag?)](https://goreportcard.com/report/github.com/teodorescuserban/caddy-cookieflag)
 
-This is a caddy plugin. Works with caddy 2.
+This is a caddy plugin. Needs >= 2.8.0.
 Adds or removes the "Secure" and "HttpOnly" flags on you cookies set by the upstream.
 
 ## Usage

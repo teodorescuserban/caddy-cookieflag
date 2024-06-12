@@ -15,6 +15,7 @@ import (
 func init() {
 	caddy.RegisterModule(CookieFlag{})
 	httpcaddyfile.RegisterHandlerDirective("cookieflag", parseCaddyfile)
+	httpcaddyfile.RegisterDirectiveOrder("cookieflag", "before", "reverse_proxy")
 }
 
 // CookieFlag manipulate various flags (Secure, HttpOnly, ...) in the Set-Cookie reponse headers.

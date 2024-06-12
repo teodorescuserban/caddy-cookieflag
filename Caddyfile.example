@@ -1,7 +1,3 @@
-{
-        order cookieflag before reverse_proxy
-}
-
 :8881 {
     cookieflag +secure
     # cookieflag -httponly
