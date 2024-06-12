@@ -22,9 +22,9 @@ func init() {
 // Syntax:
 //
 //	cookieflag [<matcher>] [(+|-)<field>] {
-//			+<field>
-//			-<field>
-//		}
+//		+<field>
+//		-<field>
+//	}
 type CookieFlag struct {
 	// The list of cookie flags to be modified.
 	//
@@ -32,8 +32,8 @@ type CookieFlag struct {
 	//
 	// Flag | Description
 	// ------------|-------------
-	// `[+|-]secure` | The `Secure` flag
-	// `[+|-]httponly` | The `HttpOnly` flag
+	// secure | The `Secure` flag
+	// httponly | The `HttpOnly` flag
 	Flags []string `json:"flags,omitempty"`
 }
 
