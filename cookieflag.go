@@ -29,7 +29,7 @@ func init() {
 type CookieFlag struct {
 	// The list of cookie flags to be modified.
 	//
-	// Prepend the flag name with a `+` to add that flag ot with `-` to remove it
+	// Prepend the flag name with a `+` to add that flag or with `-` to remove it
 	//
 	// Flag | Description
 	// ------------|-------------
