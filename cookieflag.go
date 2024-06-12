@@ -16,7 +16,22 @@ func init() {
 }
 
 // CookieFlag is a middleware that modifies the Secure and HttpOnly flags in Set-Cookie headers.
+//
+// Syntax:
+//
+//	cookieflag [<matcher>] [(+|-)<field>] {
+//			+<field>
+//			-<field>
+//		}
 type CookieFlag struct {
+	// The list of cookie flags to be modified.
+	//
+	// Prepend the flag name with a `+` to add that flag ot with `-` to remove it
+	//
+	// Flag | Description
+	// ------------|-------------
+	// `[+|-]secure` | The `Secure` flag
+	// `[+|-]httponly` | The `HttpOnly` flag
 	Flags []string `json:"flags,omitempty"`
 }
 
